@@ -25,12 +25,13 @@ div.left{
 }
 div.right{
 	position: absolute;
+	overflow: scroll;
 	top: 59px;
 	left: 208px;
 	width: 551px;
 	height: 397px;
 }
-div.search{
+input#search{
 	position: absolute;
 	top: 7px;
 	left: 16px;
@@ -47,7 +48,7 @@ div.loup{
 
 	background-image: url('Vector.png')
 }
-div.search_text{
+input#search_text{
 	position: absolute;
 	width: 61px;
 	height: 29px;
@@ -123,8 +124,116 @@ div#week{
 div.calendar{
 	position: absolute;
 	width: 173px;
-	height: 135px;
+	height: 180px;
 	left: 16px;
 	top: 118px;
 	border: 1px solid;
+}
+div.todo{
+	position: relative;
+	width: 505px;
+	height: 84px;
+	margin: 13px 13px;
+
+	background: #D2D2D2;
+}
+h1.todo{
+	position: relative;
+	width: 400px;
+	height: 24px;
+	left: 8px;
+	top: 5px;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 22px;
+
+	color: #000000;
+}
+p.todo{
+	position: absolute;
+	width: 450px;
+	height: 19px;
+	left: 8px;
+	top: 14px;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 19px;
+
+	color: #000000;
+}
+p.date{
+	position: absolute;
+	width: 92px;
+	height: 12px;
+	right: 0;
+	bottom: 0;
+	margin: 0px;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 10px;
+	line-height: 12px;
+	text-align: center;
+
+	color: #000000;
+}
+input#not_completed{
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	top: 303px;
+	left: 16px;
+
+	background: #717171;
+}
+label#not_compl_lab{
+	position: absolute;
+	width: 120px;
+	height: 12px;
+	top: 307px;
+	left: 31px;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 10px;
+	line-height: 12px;
+	text-align: center;
+	letter-spacing: 0.02em;
+
+	color: #000000;
+}
+div.page_date{
+	position: relative;
+	width: 57px;
+	height: 12px;
+	left: 8px;
+	top: 8px;
+
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 10px;
+	line-height: 12px;
+	text-align: center;
+	letter-spacing: 0.02em;
+
+	color: #000000;
+}
+input.todo{
+	position: absolute;
+	right: 15px;
+	top: 25%;
+	width: 35px;
+	height: 35px;
+	border: 1px #717171 solid;
+	background: 'black';
 }

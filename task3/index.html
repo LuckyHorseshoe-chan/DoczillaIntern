@@ -1,17 +1,14 @@
 <!doctype html>
 <html>
   <head>
-    <title>Title</title>
+    <title>ToDo</title>
 	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="calendar.css">
   </head>
   <body>
     <div class="container">
       <div class="top">
-		<div class="search">
-			<div class="loup">
-			</div>
-			<div class="search_text">Поиск</div>
-		</div>
+		<input id="search" placeholder="Поиск">
 		<div class="avatar">
 		</div>
 	  </div>
@@ -24,10 +21,76 @@
 			<div id="week">На неделю
 			</div>
 		</button>
-		<div class="calendar"></div>
+		<div class="calendar">
+			<table id="calendar2">
+			 <thead>
+				<tr><td>‹<td colspan="5"><td>›
+				<tr><td>Пн<td>Вт<td>Ср<td>Чт<td>Пт<td>Сб<td>Вс
+			  <tbody>
+			</table>
+		</div>
+		<input type="checkbox" id="not_completed" name="not_completed" value="yes">
+		<label for="not_completed" id="not_compl_lab">Только невыполненные</label>
 	  </div>
 	  <div class="right">
+		<div class="page_date">8 мая 2022</div>
+		<div class="todo">
+			<h1 class="todo">Сделай то</h1>
+			<p class="todo">Описание описание описание описание описание описание описание описание описание описание описание описание</p>
+			<input type="checkbox" class="todo" value="yes">
+			<p class="date">08.05.2022 00:12</p>
+		</div>
+		<div class="todo">
+			<h1 class="todo">Сделай сё</h1>
+			<input type="checkbox" class="todo" value="yes">
+			<p class="date">08.05.2022 00:12</p>
+		</div>
+		<div class="todo"><h1 class="todo">Сделай это</h1></div>
+		<div class="todo"><h1 class="todo">Сделай всё</h1></div>
+		<div class="todo"><h1 class="todo">Сделай курсач как-нибудь потом</h1></div>
 	  </div>
     </div>
   </body>
+  <script>
+  function Calendar2(id, year, month) {
+	var Dlast = new Date(year,month+1,0).getDate(),
+		D = new Date(year,month,Dlast),
+		DNlast = new Date(D.getFullYear(),D.getMonth(),Dlast).getDay(),
+		DNfirst = new Date(D.getFullYear(),D.getMonth(),1).getDay(),
+		calendar = '<tr>',
+		month=["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
+	if (DNfirst != 0) {
+	  for(var  i = 1; i < DNfirst; i++) calendar += '<td>';
+	}else{
+	  for(var  i = 0; i < 6; i++) calendar += '<td>';
+	}
+	for(var  i = 1; i <= Dlast; i++) {
+	  if (i == new Date().getDate() && D.getFullYear() == new Date().getFullYear() && D.getMonth() == new Date().getMonth()) {
+		calendar += '<td class="today">' + i;
+	  }else{
+		calendar += '<td>' + i;
+	  }
+	  if (new Date(D.getFullYear(),D.getMonth(),i).getDay() == 0) {
+		calendar += '<tr>';
+	  }
+	}
+	for(var  i = DNlast; i < 7; i++) calendar += '<td>&nbsp;';
+	document.querySelector('#'+id+' tbody').innerHTML = calendar;
+	document.querySelector('#'+id+' thead td:nth-child(2)').innerHTML = month[D.getMonth()] +' '+ D.getFullYear();
+	document.querySelector('#'+id+' thead td:nth-child(2)').dataset.month = D.getMonth();
+	document.querySelector('#'+id+' thead td:nth-child(2)').dataset.year = D.getFullYear();
+	if (document.querySelectorAll('#'+id+' tbody tr').length < 6) {  // чтобы при перелистывании месяцев не "подпрыгивала" вся страница, добавляется ряд пустых клеток. Итог: всегда 6 строк для цифр
+		document.querySelector('#'+id+' tbody').innerHTML += '<tr><td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;';
+	}
+	}
+	Calendar2("calendar2", new Date().getFullYear(), new Date().getMonth());
+	// переключатель минус месяц
+	document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(1)').onclick = function() {
+	  Calendar2("calendar2", document.querySelector('#calendar2 thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar2 thead td:nth-child(2)').dataset.month)-1);
+	}
+	// переключатель плюс месяц
+	document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(3)').onclick = function() {
+	  Calendar2("calendar2", document.querySelector('#calendar2 thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar2 thead td:nth-child(2)').dataset.month)+1);
+	}
+  </script>
 </html>
