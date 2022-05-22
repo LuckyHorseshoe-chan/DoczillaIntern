@@ -8,6 +8,14 @@ def get_db_connection():
     conn = sqlite3.connect('mydb.db')
     conn.row_factory = sqlite3.Row
     return conn
+def get_student(student_id):
+    conn = get_db_connection()
+    student = conn.execute('SELECT * FROM students WHERE Идентификатор = ?',
+                        (student_id,)).fetchone()
+    conn.close()
+    if student is None:
+        abort(404)
+    return student
 
 @app.route('/')
 def index():
@@ -45,3 +53,15 @@ def create():
             conn.close()
             return redirect(url_for('index'))
     return render_template('create.html')
+@app.route('/delete/', methods=('POST', 'GET'))
+def delete():
+    if request.method == 'POST':
+        student_id = request.form['id']
+        student = get_student(student_id)
+        conn = get_db_connection()
+        conn.execute('DELETE FROM students WHERE Идентификатор = ?', (student_id,))
+        conn.commit()
+        conn.close()
+        flash('"{0} {1}" отчислен(а)!'.format(student['Имя'], student['Фамилия']))
+        return redirect(url_for('index'))
+    return render_template('delete.html')

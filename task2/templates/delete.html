@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <h1>{% block title %} Отчислить студента {% endblock %}</h1>
+    <form method="post">
+        <label for="id">Идентификатор</label>
+        <br>
+        <input type="text" name="id"
+               placeholder="Введите идентификатор"
+               value="{{ request.form['id'] }}"></input>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
