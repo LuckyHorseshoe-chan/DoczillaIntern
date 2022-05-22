@@ -1,0 +1,130 @@
+body{
+	background: #ECECE0
+}
+div.container{
+	position: absolute;
+	left: 25%;
+	width: 759px;
+	height: 456px;
+	background: #ECECEC;
+}
+div.top{
+	position: absolute;
+	width: 759px;
+	height: 59px;
+
+	background: #D1D0D0;
+}
+div.left{
+	position: absolute;
+	top: 59px;
+	left: 0;
+	width: 208px;
+	height: 397px;
+	background: #FFFFFF;
+}
+div.right{
+	position: absolute;
+	top: 59px;
+	left: 208px;
+	width: 551px;
+	height: 397px;
+}
+div.search{
+	position: absolute;
+	top: 7px;
+	left: 16px;
+	width: 184px;
+	height: 43px;
+	background: #A9A9A9;
+}
+div.loup{
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	width: 26px;
+	height: 26px;
+
+	background-image: url('Vector.png')
+}
+div.search_text{
+	position: absolute;
+	width: 61px;
+	height: 29px;
+	left: 43px;
+	top: 10px;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 22px;
+
+	color: #DDDDDD;
+}
+div.avatar{
+	position: absolute;
+	top: 10px;
+	left: 707px;
+	width: 39px;
+	height: 39px;
+
+	background-image: url('avatar.png');
+}
+button.day{
+	position: absolute;
+	width: 173px;
+	height: 34px;
+
+	background: #C4C4C4;
+}
+button#today{
+	left: 16px;
+	top: 18px;
+}
+button#week{
+	left: 16px;
+	top: 66px;
+}
+div#today{
+	position: absolute;
+	width: 74px;
+	height: 22px;
+	left: 49px;
+	top: 5px;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 22px;
+	/* identical to box height */
+
+
+	color: #000000;
+}
+div#week{
+	position: absolute;
+	width: 97px;
+	height: 22px;
+	left: 38px;
+	top: 6px;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 22px;
+	/* identical to box height */
+
+
+	color: #000000;
+}
+div.calendar{
+	position: absolute;
+	width: 173px;
+	height: 135px;
+	left: 16px;
+	top: 118px;
+	border: 1px solid;
+}
