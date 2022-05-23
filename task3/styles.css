@@ -88,11 +88,10 @@ button#week{
 	top: 66px;
 }
 div#today{
-	position: absolute;
-	width: 74px;
+	position: relative;
+	width: 100%;
 	height: 22px;
-	left: 49px;
-	top: 5px;
+	top: 0;
 
 	font-family: 'Inter';
 	font-style: normal;
@@ -105,11 +104,10 @@ div#today{
 	color: #000000;
 }
 div#week{
-	position: absolute;
-	width: 97px;
+	position: relative;
+	width: 100%;
 	height: 22px;
-	left: 38px;
-	top: 6px;
+	top: 0;
 
 	font-family: 'Inter';
 	font-style: normal;
@@ -137,7 +135,7 @@ div.todo{
 
 	background: #D2D2D2;
 }
-h1.todo{
+h1.todo_name{
 	position: relative;
 	width: 400px;
 	height: 24px;
@@ -212,7 +210,7 @@ label#not_compl_lab{
 }
 div.page_date{
 	position: relative;
-	width: 57px;
+	width: 100%;
 	height: 12px;
 	left: 8px;
 	top: 8px;
@@ -228,7 +226,7 @@ div.page_date{
 
 	color: #000000;
 }
-input.todo{
+input.todo_checkbox{
 	position: absolute;
 	right: 15px;
 	top: 25%;
