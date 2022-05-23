@@ -20,7 +20,7 @@ sudo apt update<br>
 sudo apt install flask<br>
 sudo apt install sqlite3<br>
 python3 create_database.py<br>
-flask run.
+flask run<br><br>
 # Задание #3
 Напиши Todo List в соответствии с макетом  (макет приблизительный, ты волен придумать свое дизайнерское решение).<br>
 <br>
