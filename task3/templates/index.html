@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <title>ToDo</title>
+	<link rel="stylesheet" href="../static/styles.css">
+	<link rel="stylesheet" href="../static/calendar.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="top">
+		<input id="search" placeholder="Поиск">
+		<div class="avatar">
+		</div>
+	  </div>
+	  <div class="left">
+		<button class="day" id="today_but" onclick="ShowToday">
+			<div id="today">Сегодня
+			</div>
+		</button>
+		<button class="day" id="week">
+			<div id="week">На неделю
+			</div>
+		</button>
+		<div class="calendar">
+			<table id="calendar2">
+			 <thead>
+				<tr><td>‹<td colspan="5"><td>›
+				<tr><td>Пн<td>Вт<td>Ср<td>Чт<td>Пт<td>Сб<td>Вс
+			  <tbody>
+			</table>
+		</div>
+		<input type="checkbox" id="not_completed" name="not_completed" value="yes">
+		<label for="not_completed" id="not_compl_lab">Только невыполненные</label>
+	  </div>
+	  <div class="right">
+		<div class="page_date">8 мая 2022</div>
+		{% for task in tasks %}
+			<div class="todo">
+				<h1 class="todo_name">{{ task['name'] }}</h1>
+				<p class="todo">{{ task['shortDesc'] }}</p>
+				<input type="checkbox" class="todo" value="yes">
+				<p class="date">{{ task['date'] }}</p>
+			</div>
+        {% endfor %}
+	  </div>
+    </div>
+  </body>
+  <script src="../src/calendar.js"></script>
+  <script src="../src/search.js"></script>
+  <script src="../src/choose_date.js"></script>
+</html>
